@@ -22,5 +22,17 @@ int	ft_parse(char flag, va_list ap)
 		c = ft_print_character(ap);
 	else if (flag == 's')
 		c = ft_print_string(ap);
+	else if (flag == 'x')
+		c = flag_x(ap);
+	else if (flag == 'X')
+		c = flag_X(ap);
+	else if (flag == 'd')
+		c = flag_d(ap);
+	else if (flag == 'u')
+		c = flag_u(ap);
+	else if (flag == 'i')
+		c = flag_i(ap);
+	else if (flag == 'p')
+		c = flag_p(ap);
 	return (c);
 }

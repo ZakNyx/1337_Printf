@@ -17,16 +17,16 @@ int	ft_counter(int num)
 	int	counter;
 
 	counter = 0;
-	if (n == 0)
+	if (num == 0)
 		return (1);
-	if (n < 0)
+	if (num < 0)
 	{
 		counter++;
 		n = -n;
 	}
-	while (n != 0)
+	while (num != 0)
 	{
-		n = n / 10;
+		num = num / 10;
 		counter++;
 	}
 	return (counter);
@@ -37,11 +37,11 @@ int	ft_counter_unsint(unsigned int num)
 	long	counter;
 
 	counter = 0;
-	if (n == 0)
+	if (num == 0)
 		return (1);
-	while (n != 0)
+	while (num != 0)
 	{
-		n = n / 10;
+		num = num / 10;
 		counter++;
 	}
 	return (counter);
@@ -76,20 +76,20 @@ int	ft_putnbr_hxd(long int num, char *base, int fd)
 	return (ft_strlen(result));
 }
 
-int	ft_putnbr_unsint(unsigned int n, int fd)
+int	ft_putnbr_unsint(unsigned int num, int fd)
 {
 	static int	counter;
 
 	counter = 0;
-	if (n <= 9)
+	if (num <= 9)
 	{
-		ft_putchar_fd((n + '0'), fd);
+		ft_putchar_fd((num + '0'), fd);
 		count++;
 	}
 	else
 	{
-		ft_putnbr_unsint((n / 10), fd);
-		ft_putnbr_unsint((n % 10), fd);
+		ft_putnbr_unsint((num / 10), fd);
+		ft_putnbr_unsint((num % 10), fd);
 	}
 	return (count);
 }
