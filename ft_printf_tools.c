@@ -40,17 +40,20 @@ int ft_putnbr_hxd(long int num, char *base, int fd)
 	}
 	result[i] = '\0';
 	reslen = strlen(result) - 1;
-	while (reslen > 0){
+	while (reslen > 0)
+    {
 		ft_putchar_fd(result[reslen],fd);
-        reslen--;}
+        reslen--;
+    }
 	return (strlen(result));
 }
 
 int main(void)
 {
 	char	*base = "0123456789ABCDEF";
-	long n = -150;
+	long n = 150;
+    char l = 'c';
 	int fd = 1;
-    printf("%X\n", n);
-	ft_putnbr_hxd(n,base,fd);
+    printf("%x, %x\n", n, l);
+	ft_putnbr_hxd(l,base,fd);
 }
