@@ -6,21 +6,53 @@
 /*   By: zihirri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:35:16 by zihirri           #+#    #+#             */
-/*   Updated: 2021/11/19 18:03:47 by zihirri          ###   ########.fr       */
+/*   Updated: 2021/11/19 20:19:25 by zihirri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-void	ft_putchar_fd(char c, int fd)
+
+int	ft_counter(int num)
 {
-	write(fd, &c, 1);
+	int	counter;
+
+	counter = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		counter++;
+		n = -n;
+	}
+	while (n != 0)
+	{
+		n = n / 10;
+		counter++;
+	}
+	return (counter);
 }
-int ft_putnbr_hxd(long int num, char *base, int fd)
+
+int	ft_counter_unsint(unsigned int num)
 {
-    long int	n;
-    int			i;
-    int			reslen;
-    char		result[100];
+	long	counter;
+
+	counter = 0;
+	if (n == 0)
+		return (1);
+	while (n != 0)
+	{
+		n = n / 10;
+		counter++;
+	}
+	return (counter);
+}
+
+int	ft_putnbr_hxd(long int num, char *base, int fd)
+{
+	long		n;
+	int			i;
+	int			reslen;
+	char		result[100];
 
 	i = 1;
 	if (num == 0)
@@ -32,28 +64,14 @@ int ft_putnbr_hxd(long int num, char *base, int fd)
 		n = (long)num;
 	if (num < 0)
 		n = (unsigned int)num;
-	while(n)
+	while (n)
 	{
-		result[i] = base[n % 16];
+		result[i++] = base[n % 16];
 		n /= 16;
-        i++;
 	}
 	result[i] = '\0';
-	reslen = strlen(result) - 1;
+	reslen = ft_strlen(result) - 1;
 	while (reslen > 0)
-    {
-		ft_putchar_fd(result[reslen],fd);
-        reslen--;
-    }
-	return (strlen(result));
-}
-
-int main(void)
-{
-	char	*base = "0123456789ABCDEF";
-	long n = 150;
-    char l = 'c';
-	int fd = 1;
-    printf("%x, %x\n", n, l);
-	ft_putnbr_hxd(l,base,fd);
+		ft_putchar_fd(result[reslen--], fd);
+	return (ft_strlen(result));
 }
