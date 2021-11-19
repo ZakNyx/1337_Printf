@@ -6,13 +6,13 @@
 /*   By: zihirri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:19:09 by zihirri           #+#    #+#             */
-/*   Updated: 2021/11/19 20:12:11 by zihirri          ###   ########.fr       */
+/*   Updated: 2021/11/19 20:31:04 by zihirri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<printf.h>
 
-int ft_parse(char flag, va_list ap)
+int	ft_parse(char flag, va_list ap)
 {
 	int	c;
 

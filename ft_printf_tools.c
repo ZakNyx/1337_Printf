@@ -6,7 +6,7 @@
 /*   By: zihirri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:35:16 by zihirri           #+#    #+#             */
-/*   Updated: 2021/11/19 20:19:25 by zihirri          ###   ########.fr       */
+/*   Updated: 2021/11/19 20:30:36 by zihirri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,22 @@ int	ft_putnbr_hxd(long int num, char *base, int fd)
 	while (reslen > 0)
 		ft_putchar_fd(result[reslen--], fd);
 	return (ft_strlen(result));
+}
+
+int	ft_putnbr_unsint(unsigned int n, int fd)
+{
+	static int	counter;
+
+	counter = 0;
+	if (n <= 9)
+	{
+		ft_putchar_fd((n + '0'), fd);
+		count++;
+	}
+	else
+	{
+		ft_putnbr_unsint((n / 10), fd);
+		ft_putnbr_unsint((n % 10), fd);
+	}
+	return (count);
 }
