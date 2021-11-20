@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_recursive.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zihirri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 19:46:16 by zihirri           #+#    #+#             */
-/*   Updated: 2021/11/20 19:46:19 by zihirri          ###   ########.fr       */
+/*   Created: 2021/11/04 12:58:16 by zihirri           #+#    #+#             */
+/*   Updated: 2021/11/10 15:11:05 by zihirri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	va_list	ap;
-	size_t	len;
-	int	counter;
-	int	counter_spe;
+	long	t;
 
-	va_start(ap, format);
-	len = 0;
-	counter = 0;
-	counter_spe = 0;
-	while (format[len])
+	t = (long)nb;
+	if (t < 0)
 	{
-		if (format[len] == '%')
-		{
-			counter_spe += ft_parse(format[len + 1], ap);
-			len++;
-		}
-		else
-		{
-			write(1, &(format[len]), 1);
-			counter++;
-		}
-		len++;
+		ft_putchar_fd('-', fd);
+		t *= -1;
 	}
-	va_end(ap);
-	return (counter + counter_spe);
+	if (t >= 10)
+	{
+		ft_putnbr_fd(t / 10, fd);
+		ft_putnbr_fd(t % 10, fd);
+	}
+	else if (t >= 0)
+	{
+		ft_putchar_fd(t + 48, fd);
+	}
 }

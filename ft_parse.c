@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<printf.h>
+#include "ft_printf.h"
 
 int	ft_parse(char flag, va_list ap)
 {
 	int	c;
 
+	c = 0;
 	if (flag == '%')
 		c = ft_print_pourcentage();
 	else if (flag == 'c')

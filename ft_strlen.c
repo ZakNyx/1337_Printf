@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zihirri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 19:46:16 by zihirri           #+#    #+#             */
-/*   Updated: 2021/11/20 19:46:19 by zihirri          ###   ########.fr       */
+/*   Created: 2021/11/01 12:11:22 by zihirri           #+#    #+#             */
+/*   Updated: 2021/11/05 14:52:05 by zihirri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+size_t	ft_strlen(const char *str)
 {
-	va_list	ap;
-	size_t	len;
-	int	counter;
-	int	counter_spe;
+	size_t	i;
 
-	va_start(ap, format);
-	len = 0;
-	counter = 0;
-	counter_spe = 0;
-	while (format[len])
-	{
-		if (format[len] == '%')
-		{
-			counter_spe += ft_parse(format[len + 1], ap);
-			len++;
-		}
-		else
-		{
-			write(1, &(format[len]), 1);
-			counter++;
-		}
-		len++;
-	}
-	va_end(ap);
-	return (counter + counter_spe);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

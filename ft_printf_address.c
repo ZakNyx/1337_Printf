@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_address.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zihirri <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 19:46:59 by zihirri           #+#    #+#             */
+/*   Updated: 2021/11/20 19:47:00 by zihirri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr_hxd_ad(uintptr_t num, char *base, int fd)
 {
@@ -13,7 +24,7 @@ int	ft_putnbr_hxd_ad(uintptr_t num, char *base, int fd)
 		ft_putchar_fd('0', fd);
 		return (1);
 	}
-	while (n)
+	while (num)
 	{
 		result[i++] = base[num % 16];
 		 num = num / 16;
@@ -21,7 +32,7 @@ int	ft_putnbr_hxd_ad(uintptr_t num, char *base, int fd)
 	result[i] = '\0';
 	reslen = ft_strlen(result) - 1;
 	while (reslen > 0)
-		ft_putchar_fd(result[relen--], fd);
+		ft_putchar_fd(result[reslen--], fd);
 	return (ft_strlen(result));	
 }
 
@@ -29,7 +40,7 @@ int	flag_p(va_list ap)
 {
 	void	*tempo;
 
-	tempo = va_arg(pa, void *);
+	tempo = va_arg(ap, void *);
 	ft_putstr_fd("0x", 1);
-	return (ft_putnrb_hxd_p((uintptr_t)tempo, "123456789abcdef", 1) + 2);
+	return (ft_putnbr_hxd_ad((uintptr_t)tempo, "0123456789abcdef", 1) + 2);
 }

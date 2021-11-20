@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_counter(int num)
 {
@@ -22,7 +22,7 @@ int	ft_counter(int num)
 	if (num < 0)
 	{
 		counter++;
-		n = -n;
+		num = -num;
 	}
 	while (num != 0)
 	{
@@ -61,8 +61,8 @@ int	ft_putnbr_hxd(long int num, char *base, int fd)
 		return (1);
 	}
 	if (num > 0)
-		n = (long)num;
-	if (num < 0)
+		n = (long int)num;
+	else
 		n = (unsigned int)num;
 	while (n)
 	{
@@ -84,12 +84,12 @@ int	ft_putnbr_unsint(unsigned int num, int fd)
 	if (num <= 9)
 	{
 		ft_putchar_fd((num + '0'), fd);
-		count++;
+		counter++;
 	}
 	else
 	{
 		ft_putnbr_unsint((num / 10), fd);
 		ft_putnbr_unsint((num % 10), fd);
 	}
-	return (count);
+	return (counter);
 }

@@ -10,7 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<printf.h>
+#include"ft_printf.h"
+
+void	ft_putstr_fd(char const *s, int fd)
+{
+	if (s)
+		write(fd, s, ft_strlen(s));
+}
 
 int	ft_print_character(va_list ap)
 {
