@@ -18,7 +18,7 @@ int	ft_putnbr_hxd_ad(uintptr_t num, char *base, int fd)
 	int	reslen;
 	char	result[100];
 
-	i = 1;
+	i = 0;
 	if (num == 0)
 	{
 		ft_putchar_fd('0', fd);
@@ -31,7 +31,7 @@ int	ft_putnbr_hxd_ad(uintptr_t num, char *base, int fd)
 	}
 	result[i] = '\0';
 	reslen = ft_strlen(result) - 1;
-	while (reslen > 0)
+	while (reslen >= 0)
 		ft_putchar_fd(result[reslen--], fd);
 	return (ft_strlen(result));	
 }

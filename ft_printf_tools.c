@@ -49,12 +49,12 @@ int	ft_counter_unsint(unsigned int num)
 
 int	ft_putnbr_hxd(long int num, char *base, int fd)
 {
-	long		n;
-	int			i;
-	int			reslen;
-	char		result[100];
-
-	i = 1;
+	long	n;
+	int	i;
+	int	reslen;
+	char	result[100];
+	
+	i = 0;
 	if (num == 0)
 	{
 		ft_putchar_fd('0', fd);
@@ -67,11 +67,11 @@ int	ft_putnbr_hxd(long int num, char *base, int fd)
 	while (n)
 	{
 		result[i++] = base[n % 16];
-		n /= 16;
+		n = n / 16;
 	}
 	result[i] = '\0';
 	reslen = ft_strlen(result) - 1;
-	while (reslen > 0)
+	while (reslen >= 0)
 		ft_putchar_fd(result[reslen--], fd);
 	return (ft_strlen(result));
 }

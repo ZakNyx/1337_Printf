@@ -14,7 +14,7 @@
 
 int main(void)
 {
-    int x = 100;
-    ft_printf("%x",x);
-	printf("%x", x);
+    int x = -1000;
+    ft_printf("%x\n",x);
+    printf("%x",x);
 }
