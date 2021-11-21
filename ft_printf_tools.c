@@ -6,7 +6,7 @@
 /*   By: zihirri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:35:16 by zihirri           #+#    #+#             */
-/*   Updated: 2021/11/19 20:30:36 by zihirri          ###   ########.fr       */
+/*   Updated: 2021/11/21 16:16:13 by zihirri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ int	ft_counter_unsint(unsigned int num)
 int	ft_putnbr_hxd(long int num, char *base, int fd)
 {
 	long	n;
-	int	i;
-	int	reslen;
+	int		i;
+	int		reslen;
 	char	result[100];
-	
+
 	i = 0;
 	if (num == 0)
 	{

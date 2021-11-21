@@ -12,11 +12,11 @@
 
 NAME = libftprintf.a
 
-AR = ar -rc
+AR = @ar -rc
 
-CC = gcc -c
+CC = @gcc -c
 
-RM = rm -rf
+RM = @rm -rf
 
 CFLAGS = -Wall -Werror -Wextra 
 
@@ -30,6 +30,12 @@ FILES = ft_parse.c \
 	ft_putnbr_fd.c \
 	ft_putchar_fd.c
 
+# Colors
+C_RED = \033[1;31m
+C_GREEN = \033[1;32m
+C_L_BLUE = \033[1;34m
+C_RES = \033[0m
+
 OBJS = $(subst .c,.o,$(FILES))
 
 all : $(NAME)
@@ -37,16 +43,14 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(FILES)
 	$(AR) $(NAME) $(OBJS)
+	@echo "$(C_GREEN)[LIBRARY CREATED!]$(C_RES)"
 
 clean:
 	${RM} ${OBJS}
+	@echo "$(C_RED)[OBJECT DELETED!]$(C_RES)"
 
 fclean: clean
 	${RM} ${NAME}
+	@echo "$(C_RED)[PROJECT.A REMOVED!]$(C_RES)"
 
 re: fclean all
-
-git:
-	git add .
-	git commit -m "$m"
-	git push

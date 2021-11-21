@@ -26,7 +26,7 @@ int	ft_parse(char flag, va_list ap)
 	else if (flag == 'x')
 		c = flag_x(ap);
 	else if (flag == 'X')
-		c = flag_X(ap);
+		c = flag_xup(ap);
 	else if (flag == 'd')
 		c = flag_d(ap);
 	else if (flag == 'u')

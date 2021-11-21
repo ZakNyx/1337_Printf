@@ -6,7 +6,7 @@
 /*   By: zihirri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:46:16 by zihirri           #+#    #+#             */
-/*   Updated: 2021/11/20 19:46:19 by zihirri          ###   ########.fr       */
+/*   Updated: 2021/11/21 16:02:41 by zihirri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	size_t	len;
-	int	counter;
-	int	counter_spe;
+	int		counter;
+	int		counter_spe;
 
 	va_start(ap, format);
 	len = 0;

@@ -6,16 +6,16 @@
 /*   By: zihirri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:46:59 by zihirri           #+#    #+#             */
-/*   Updated: 2021/11/20 19:47:00 by zihirri          ###   ########.fr       */
+/*   Updated: 2021/11/21 16:05:28 by zihirri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_hxd_ad(uintptr_t num, char *base, int fd)
+int	ft_putnbr_hxd_ad(size_t	num, char *base, int fd)
 {
-	int	i;
-	int	reslen;
+	int		i;
+	int		reslen;
 	char	result[100];
 
 	i = 0;
@@ -27,13 +27,13 @@ int	ft_putnbr_hxd_ad(uintptr_t num, char *base, int fd)
 	while (num)
 	{
 		result[i++] = base[num % 16];
-		 num = num / 16;
+		num = num / 16;
 	}
 	result[i] = '\0';
 	reslen = ft_strlen(result) - 1;
 	while (reslen >= 0)
 		ft_putchar_fd(result[reslen--], fd);
-	return (ft_strlen(result));	
+	return (ft_strlen(result));
 }
 
 int	flag_p(va_list ap)
